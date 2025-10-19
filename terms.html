@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Architectural Museums of Japan - Legal terms, usage guidelines, and disclaimers for using our museum directory.">
+    <title>Terms of Service | Architectural Museums of Japan</title>
+    <style>
+        /* ================================
+   EARLY MODERNISM THEME TOKENS
+   (Bauhaus / De Stijl / Int'l Style)
+   ================================ */
+
+:root {
+  /* Typography */
+  --font-sans: "Futura PT","Avenir Next","Montserrat","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+
+  /* Core Palette (Modernist primaries + neutrals) */
+  --color-red: #E5252A;
+  --color-blue: #0057B8;
+  --color-yellow: #F6D32D;
+  --color-black: #111111;
+  --color-white: #FFFFFF;
+  --color-concrete: #F5F5F5;
+  --color-rule: #D9D9D9;
+  --color-text: var(--color-black);
+  --color-text-2: #333333;
+
+  /* Roles */
+  --bg-page: var(--color-white);
+  --bg-surface: var(--color-concrete);
+  --link: var(--color-blue);
+  --link-hover: #003E86;
+  --focus: var(--color-blue);
+
+  /* Spacing / Radius / Motion */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --radius: 4px;
+  --shadow-1: 0 1px 0 rgba(0,0,0,0.06);
+  --t-fast: 120ms linear;
+}
+
+/* =========
+   GLOBAL
+   ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-family: var(--font-sans); }
+
+body {
+  background: var(--bg-page);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links & Focus (utilitarian) */
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; transition: color var(--t-fast); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Container uses modular grid gaps */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+
+/* =========
+   HEADER / NAV
+   ========= */
+header {
+  background: var(--bg-page);
+  padding: var(--s-4) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  line-height: 1.12;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.subtitle {
+  color: var(--color-text-2);
+  font-size: 0.95rem;
+  margin-top: var(--s-1);
+}
+
+nav {
+  display: flex;
+  gap: var(--s-5);
+}
+
+nav a {
+  color: var(--color-text-2);
+  font-weight: 600;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: border-color var(--t-fast), transform var(--t-fast), background var(--t-fast), color var(--t-fast);
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* =========
+   MAIN CONTENT
+   ========= */
+main {
+  max-width: 900px;
+  margin: var(--s-7) auto;
+  padding: 0 var(--s-4);
+}
+
+.content-container {
+  background: var(--bg-page);
+  padding: var(--s-7);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-rule);
+}
+
+/* =========
+   TYPOGRAPHY
+   ========= */
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--color-text);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  line-height: 1.12;
+  margin-bottom: var(--s-2);
+}
+
+.last-updated {
+  color: var(--color-text-2);
+  font-size: 0.9rem;
+  margin-bottom: var(--s-6);
+  font-style: italic;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--color-text);
+  font-weight: 800;
+  margin-top: var(--s-6);
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--color-rule);
+  letter-spacing: 0.1px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  font-weight: 700;
+  margin-top: var(--s-5);
+  margin-bottom: var(--s-3);
+}
+
+p {
+  margin-bottom: var(--s-4);
+  color: #444;
+  line-height: 1.6;
+}
+
+ul {
+  margin-left: var(--s-6);
+  margin-bottom: var(--s-4);
+}
+
+li {
+  margin-bottom: var(--s-2);
+  color: #444;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* =========
+   IMPORTANT NOTICE BOX
+   ========= */
+.important-notice {
+  background-color: var(--bg-surface);
+  border-left: 4px solid var(--color-blue);
+  padding: var(--s-5);
+  margin: var(--s-5) 0;
+  border-radius: var(--radius);
+}
+
+.important-notice h3 {
+  margin-top: 0;
+  color: var(--color-blue);
+  font-weight: 800;
+}
+
+.important-notice p {
+  margin-bottom: var(--s-3);
+}
+
+.important-notice p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========
+   FOOTER
+   ========= */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--color-rule);
+  text-align: center;
+  padding: var(--s-7) var(--s-4);
+  margin-top: var(--s-7);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-5);
+  margin-bottom: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-text-2);
+  font-weight: 600;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.footer-links a:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+footer p {
+  color: var(--color-text-2);
+  font-size: 0.9rem;
+}
+
+/* =========
+   RESPONSIVE
+   ========= */
+@media (max-width: 768px) {
+  .content-container {
+    padding: var(--s-5);
+  }
+
+  .page-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  nav {
+    gap: var(--s-3);
+  }
+
+  nav a {
+    padding: var(--s-2) var(--s-3);
+    font-size: 0.9rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: var(--s-4);
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1><a href="index.html">Japan's Architectural Museums</a></h1>
+                    <div class="subtitle">Terms of Use & Legal Information</div>
+                </div>
+                <nav>
+                    <a href="index.html">Museums</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <h1 class="page-title">Terms of Service</h1>
+            <p class="last-updated">Last Updated: October 11, 2025</p>
+
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing and using Architectural Museums of Japan ("the Website"), you agree to be bound by these Terms of Service ("Terms") and our <a href="privacy-policy.html">Privacy Policy</a>. If you do not agree with any part of these Terms, please do not use our Website.</p>
+            
+            <p>These Terms apply to all visitors, users, and others who access or use the Website.</p>
+
+            <h2>Description of Service</h2>
+            <p>Architectural Museums of Japan provides an informational directory of architecturally significant museums and galleries across Japan. Our service includes:</p>
+            <ul>
+                <li>Curated listings of museums with architectural merit</li>
+                <li>Architectural and historical information about each venue</li>
+                <li>Location and accessibility information</li>
+                <li>Cultural context and travel planning guidance</li>
+                <li>Nearby attraction recommendations</li>
+            </ul>
+
+            <p>This is an informational resource and travel guide. We are not affiliated with, endorsed by, or representing any of the museums listed in our directory.</p>
+
+            <h2>Use of Content</h2>
+
+            <h3>Personal Use</h3>
+            <p>Content on this website is provided for personal, non-commercial use. You may:</p>
+            <ul>
+                <li>View and browse content for your own travel planning purposes</li>
+                <li>Print individual pages for personal reference</li>
+                <li>Share links to our website on social media or with friends</li>
+                <li>Reference information with proper attribution</li>
+            </ul>
+
+            <h3>Prohibited Uses</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Republish, reproduce, or redistribute content from this site without written permission</li>
+                <li>Use content for commercial purposes without authorization</li>
+                <li>Systematically download, scrape, or extract site content using automated tools</li>
+                <li>Modify, adapt, or create derivative works from our content</li>
+                <li>Remove copyright notices, attribution, or proprietary markings</li>
+                <li>Frame or embed our content on other websites without permission</li>
+                <li>Use our content in a misleading or defamatory manner</li>
+                <li>Attempt to gain unauthorized access to any portion of the Website</li>
+            </ul>
+
+            <h2>Content Accuracy and Disclaimer</h2>
+
+            <h3>Information Provided "As Is"</h3>
+            <p>While we strive to provide accurate and up-to-date information, we cannot guarantee that all information is current, complete, or error-free. Museum information including hours, admission fees, exhibitions, accessibility, and contact details may change without notice.</p>
+
+            <div class="important-notice">
+                <h3>⚠️ Important Disclaimer</h3>
+                <p>The information on this Website is provided for general informational purposes only. It should not be relied upon as the sole source for travel planning decisions.</p>
+            </div>
+
+            <h3>User Responsibility</h3>
+            <p>Users are responsible for:</p>
+            <ul>
+                <li>Verifying critical information (hours, closures, admission fees, special requirements) directly with museums before visiting</li>
+                <li>Checking official museum websites for current information</li>
+                <li>Confirming transportation schedules and routes</li>
+                <li>Understanding that circumstances may change after information is published</li>
+                <li>Making appropriate travel insurance and planning arrangements</li>
+            </ul>
+
+            <h3>No Liability for Inaccuracies</h3>
+            <p>We are not responsible for any losses, damages, inconveniences, or expenses resulting from:</p>
+            <ul>
+                <li>Inaccurate or outdated information on the Website</li>
+                <li>Museum closures, schedule changes, or unexpected circumstances</li>
+                <li>Travel disruptions or changes to transportation</li>
+                <li>Admission denials or access restrictions</li>
+                <li>Changes to museum exhibitions or facilities</li>
+                <li>Any decisions made based on information from this Website</li>
+            </ul>
+
+            <h2>External Links</h2>
+            <p>This Website contains links to external sites including:</p>
+            <ul>
+                <li>Official museum websites</li>
+                <li>Transportation and mapping services</li>
+                <li>Tourism boards and cultural organizations</li>
+                <li>Accommodation and travel booking platforms</li>
+            </ul>
+
+            <p>We are not responsible for:</p>
+            <ul>
+                <li>The content, accuracy, or practices of external websites</li>
+                <li>Privacy policies of third-party sites</li>
+                <li>Products or services offered by external sites</li>
+                <li>Changes or discontinuation of external links</li>
+            </ul>
+
+            <p>Clicking external links means you leave our Website and are subject to the terms and policies of those external sites. We recommend reviewing their terms and privacy policies.</p>
+
+            <h2>Intellectual Property</h2>
+
+            <h3>Our Content</h3>
+            <p>Unless otherwise noted, all content on this Website including text, graphics, logos, design elements, and the compilation of information is protected by copyright and other intellectual property laws.</p>
+
+            <p>Copyright ownership:</p>
+            <ul>
+                <li><strong>Original text and descriptions:</strong> © Architectural Museums of Japan</li>
+                <li><strong>Site design and layout:</strong> © Architectural Museums of Japan</li>
+                <li><strong>Compilation and curation:</strong> © Architectural Museums of Japan</li>
+            </ul>
+
+            <h3>Third-Party Content</h3>
+            <p>Some content on this Website is used under fair use provisions or with appropriate licensing:</p>
+            <ul>
+                <li><strong>Museum names and locations:</strong> Factual information in the public domain</li>
+                <li><strong>Architectural works:</strong> References to buildings and architects for informational purposes</li>
+                <li><strong>Photographs:</strong> Used with attribution or under license where applicable</li>
+            </ul>
+
+            <p>Museum names, architectural designs, and building designs remain the intellectual property of their respective owners and architects. Our use of these names and references is purely informational and educational.</p>
+
+            <h3>Attribution Requirements</h3>
+            <p>If you wish to reference or quote information from our Website (with permission), you must provide proper attribution:</p>
+            <p><strong>Format:</strong> "Source: Architectural Museums of Japan [website URL]"</p>
+
+            <h2>User-Submitted Content</h2>
+            <p>If you submit suggestions, feedback, corrections, or other content to us via email or other means:</p>
+            <ul>
+                <li>You grant us the right to use this information to improve our directory</li>
+                <li>You will not receive compensation or attribution unless specifically agreed</li>
+                <li>You confirm that your submission does not violate any third-party rights</li>
+                <li>You retain ownership of your submitted content</li>
+                <li>We reserve the right to edit, modify, or decline to use submitted content</li>
+            </ul>
+
+            <h2>Advertising</h2>
+            <p>This Website displays third-party advertisements served by Google AdSense and potentially other advertising partners.</p>
+
+            <h3>Advertisement Disclaimer</h3>
+            <ul>
+                <li>We are not responsible for the content of advertisements</li>
+                <li>Advertisement placement does not constitute endorsement of products or services</li>
+                <li>We do not guarantee the accuracy of advertising claims</li>
+                <li>Clicking on advertisements takes you to external sites subject to their own terms</li>
+                <li>We are not responsible for transactions made through advertised products or services</li>
+            </ul>
+
+            <h3>Advertising Cookies</h3>
+            <p>Advertising partners use cookies to serve relevant ads. See our <a href="privacy-policy.html">Privacy Policy</a> for information about cookies and how to opt out of personalized advertising.</p>
+
+            <h2>Disclaimer of Warranties</h2>
+            <p>This Website is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to:</p>
+            <ul>
+                <li><strong>Accuracy:</strong> No guarantee that information is accurate, current, or complete</li>
+                <li><strong>Availability:</strong> No guarantee of uninterrupted or error-free operation</li>
+                <li><strong>Fitness for purpose:</strong> No guarantee that the Website meets your specific needs</li>
+                <li><strong>Non-infringement:</strong> While we respect intellectual property, we cannot guarantee no infringement claims</li>
+                <li><strong>Security:</strong> No guarantee that the Website is free from viruses or harmful components</li>
+                <li><strong>Results:</strong> No guarantee of specific results from using our information</li>
+            </ul>
+
+            <h2>Limitation of Liability</h2>
+            <p>To the fullest extent permitted by applicable law, Architectural Museums of Japan and its operators shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of this Website, including but not limited to:</p>
+            <ul>
+                <li>Travel disruptions, delays, or cancellations</li>
+                <li>Venue closures or access denials</li>
+                <li>Transportation issues or schedule changes</li>
+                <li>Personal injury or property damage</li>
+                <li>Financial losses or expenses</li>
+                <li>Lost time, data, or opportunities</li>
+                <li>Reliance on information from the Website</li>
+                <li>Errors, omissions, or inaccuracies in content</li>
+                <li>Third-party actions or website issues</li>
+            </ul>
+
+            <p>This limitation applies even if we have been advised of the possibility of such damages.</p>
+
+            <h2>Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless Architectural Museums of Japan and its operators from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:</p>
+            <ul>
+                <li>Your use or misuse of the Website</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any third-party rights</li>
+                <li>Content you submit to us</li>
+            </ul>
+
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to this page with an updated "Last Updated" date.</p>
+
+            <p>Material changes may be announced through:</p>
+            <ul>
+                <li>Prominent notice on the Website homepage</li>
+                <li>Update to the "Last Updated" date</li>
+                <li>Email notification (if we have your contact information)</li>
+            </ul>
+
+            <p>Your continued use of the Website after changes are posted constitutes acceptance of the modified Terms.</p>
+
+            <h2>Governing Law and Jurisdiction</h2>
+            <p>These Terms are governed by the laws of Japan, without regard to its conflict of law provisions.</p>
+
+            <p>Any disputes arising from these Terms or your use of the Website shall be resolved in accordance with Japanese law and subject to the exclusive jurisdiction of the courts of Japan.</p>
+
+            <h2>Severability</h2>
+            <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect.</p>
+
+            <p>Invalid provisions shall be modified to the minimum extent necessary to make them valid and enforceable while preserving the original intent.</p>
+
+            <h2>Entire Agreement</h2>
+            <p>These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a>, constitute the entire agreement between you and Architectural Museums of Japan regarding your use of the Website.</p>
+
+            <p>These Terms supersede any prior agreements or understandings, whether written or oral.</p>
+
+            <h2>Waiver</h2>
+            <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.</p>
+
+            <p>No waiver of any term shall be deemed a further or continuing waiver of such term or any other term.</p>
+
+            <h2>Contact for Terms Questions</h2>
+            <p>If you have questions about these Terms of Service, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:wfhfujisan@outlook.jp">wfhfujisan@outlook.jp</a></li>
+                <li><strong>Contact Page:</strong> <a href="contact.html">Contact Us</a></li>
+            </ul>
+
+            <h2>Acknowledgment</h2>
+            <p>By using this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+
+            <div class="important-notice">
+                <h3>📋 Summary</h3>
+                <p>This Website provides informational content about architectural museums in Japan for personal travel planning use. While we strive for accuracy, users must verify information independently. We are not liable for travel disruptions or decisions made based on our content. Content is protected by copyright. By using this site, you agree to these terms.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Museums</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            <p>&copy; 2025 Architectural Museums of Japan. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
