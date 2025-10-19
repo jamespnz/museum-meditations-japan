@@ -517,8 +517,8 @@ nav a:hover, nav a.active {
                     <p class="subtitle">Discover the intersection of architecture and culture</p>
                 </div>
                 <nav>
-                    <a href="#" onclick="showSection('museums'); return false;" class="active">Museums</a>
-                    <a href="#" onclick="showSection('about'); return false;">About</a>
+                    <a href="#" onclick="showSection('museums', event); return false;" class="active">Museums</a>
+                    <a href="#" onclick="showSection('about', event); return false;">About</a>
                 </nav>
             </div>
         </div>
@@ -645,7 +645,7 @@ let museumsData = [];
 const CSV_URL = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/museums.csv';
 
 // Navigation
-function showSection(sectionId) {
+function showSection(sectionId, event) {
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
@@ -653,8 +653,14 @@ function showSection(sectionId) {
         link.classList.remove('active');
     });
     
-    document.getElementById(sectionId).classList.add('active');
-    event?.target?.classList.add('active');
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+    
+    if (event?.target) {
+        event.target.classList.add('active');
+    }
 }
 
 // Load CSV from GitHub
