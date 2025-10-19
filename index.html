@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan's Architectural Museums & Galleries</title>
+    <style>
+        /* ================================
+   EARLY MODERNISM THEME TOKENS
+   (Bauhaus / De Stijl / Int'l Style)
+   ================================ */
+
+:root {
+  /* Typography */
+  --font-sans: "Futura PT","Avenir Next","Montserrat","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+
+  /* Core Palette (Modernist primaries + neutrals) */
+  --color-red: #E5252A;
+  --color-blue: #0057B8;
+  --color-yellow: #F6D32D;
+  --color-black: #111111;
+  --color-white: #FFFFFF;
+  --color-concrete: #F5F5F5;
+  --color-rule: #D9D9D9;
+  --color-text: var(--color-black);
+  --color-text-2: #333333;
+
+  /* Roles */
+  --bg-page: var(--color-white);
+  --bg-surface: var(--color-concrete);
+  --link: var(--color-blue);
+  --link-hover: #003E86;
+  --focus: var(--color-blue);
+
+  /* Spacing / Radius / Motion */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --radius: 4px;
+  --shadow-1: 0 1px 0 rgba(0,0,0,0.06);
+  --t-fast: 120ms linear;
+}
+
+/* =========
+   GLOBAL
+   ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-family: var(--font-sans); }
+
+body {
+  background: var(--bg-page);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links & Focus (utilitarian) */
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; transition: color var(--t-fast); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Container uses modular grid gaps */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+
+/* =========
+   HEADER / NAV
+   ========= */
+header {
+  background: var(--bg-page);
+  padding: var(--s-4) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-rule);
+  /* Removed backdrop blur and heavy shadows */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 900;              /* geometric, assertive */
+  letter-spacing: 0.2px;
+  line-height: 1.12;
+}
+
+.subtitle {
+  color: var(--color-text-2);
+  font-size: 0.95rem;
+  margin-top: var(--s-1);
+}
+
+nav {
+  display: flex;
+  gap: var(--s-5);
+}
+
+nav a {
+  color: var(--color-text-2);
+  font-weight: 600;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: border-color var(--t-fast), transform var(--t-fast), background var(--t-fast), color var(--t-fast);
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+  transform: translateY(-1px);   /* subtle, functional */
+}
+
+/* =========
+   SECTIONS
+   ========= */
+.section {
+  display: none;
+  padding: var(--s-7) 0;
+  animation: fadeIn .3s linear;
+}
+.section.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(var(--s-3)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========
+   GRID: MUSEUMS
+   ========= */
+.museums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+}
+
+/* =========
+   CARDS (Museum)
+   ========= */
+.museum-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+  box-shadow: none;               /* remove decorative depth */
+  transition: box-shadow var(--t-fast), transform var(--t-fast), border-color var(--t-fast);
+  cursor: pointer;
+  position: relative;
+}
+
+.museum-card:hover {
+  border-color: var(--color-text);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-1px);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  background: var(--bg-surface);  /* remove gradient fill */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #777;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.image-attribution {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.3);  /* 30% black */
+  color: white;
+  padding: var(--s-1) var(--s-2);
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+.museum-card:hover .image-attribution { opacity: 1; }
+
+.card-content { padding: var(--s-6); }
+
+.museum-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--s-1);
+  line-height: 1.24;
+  letter-spacing: 0.1px;
+}
+
+.museum-name-japanese {
+  font-size: 1rem;
+  color: var(--color-text-2);
+  margin-bottom: var(--s-4);
+}
+
+.architect-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--s-4);
+  gap: var(--s-2);
+}
+
+/* Color badges -> flat blocks (no gradients, reduced rounding) */
+.architect-name {
+  border-radius: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  background: none;   /* desaturated blue tint */
+  color: var(--color-text);
+  padding: var(--s-1) var(--s-2);
+}
+
+.year-badge {
+  background: var(--color-yellow);
+  color: var(--color-black);
+  padding: var(--s-1) var(--s-3);
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-2);
+  font-size: 0.9rem;
+  gap: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+
+.description {
+  color: var(--color-text-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--s-4);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+}
+
+.tag {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-rule);
+  padding: var(--s-1) var(--s-3);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+
+/* =========
+   MODAL
+   ========= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.modal.open {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--bg-page);
+  width: 90%;
+  max-width: 900px;
+  margin: var(--s-5) auto;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: var(--s-4);
+  right: var(--s-4);
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--color-text);
+  cursor: pointer;
+  z-index: 10;
+  background: var(--bg-page);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  transition: background var(--t-fast);
+}
+
+.close:hover {
+  background: var(--bg-surface);
+}
+
+.modal-header {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.modal-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.modal-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  padding: var(--s-6);
+}
+
+.modal-museum-name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: var(--s-2);
+}
+
+.modal-museum-japanese {
+  font-size: 1.2rem;
+  margin-bottom: var(--s-3);
+  opacity: 0.9;
+}
+
+.modal-architect {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.modal-body {
+  padding: var(--s-6);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+}
+
+.info-card {
+  background: var(--bg-surface);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-rule);
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: var(--color-text-2);
+  margin-bottom: var(--s-2);
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.detail-section {
+  margin-bottom: var(--s-6);
+}
+
+.detail-section h3 {
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: var(--s-3);
+  font-weight: 800;
+}
+
+.detail-section p {
+  color: var(--color-text-2);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+}
+
+.attraction-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+}
+
+.attraction-image {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.attraction-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.attraction-content {
+  padding: var(--s-4);
+}
+
+.attraction-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--s-2);
+}
+
+.attraction-distance {
+  display: inline-block;
+  background: var(--color-yellow);
+  color: var(--color-black);
+  padding: var(--s-1) var(--s-3);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--s-3);
+}
+
+.attraction-description {
+  color: var(--color-text-2);
+  line-height: 1.6;
+}
+
+/* Status message */
+.status-message {
+  padding: var(--s-4);
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: var(--s-7);
+  color: var(--color-text-2);
+}
+
+/* Error state */
+.error {
+  background: #fee;
+  border: 1px solid #fcc;
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  color: #c00;
+  margin: var(--s-5) 0;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Japan's Architectural Museums & Galleries</h1>
+                    <p class="subtitle">Discover the intersection of architecture and culture</p>
+                </div>
+                <nav>
+                    <a href="#" onclick="showSection('museums'); return false;" class="active">Museums</a>
+                    <a href="#" onclick="showSection('about'); return false;">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Museums Section -->
+        <section id="museums" class="section active">
+            <div id="status-message" class="status-message">Loading museums data...</div>
+            <div id="museums-grid" class="museums-grid"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 style="font-size: 2rem; margin-bottom: var(--s-5); font-weight: 800;">About This Project</h2>
+            <p style="margin-bottom: var(--s-4); line-height: 1.7;">
+                This catalog showcases Japan's architectural museums and galleries, highlighting the remarkable 
+                buildings that house cultural treasures across the country.
+            </p>
+            <p style="line-height: 1.7;">
+                Each entry features detailed information about the architecture, location, and cultural significance 
+                of these important institutions.
+            </p>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="museumModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-header" class="modal-header">
+                <img src="" alt="Museum">
+                <div class="modal-title">
+                    <div class="modal-museum-name">Museum Name</div>
+                    <div class="modal-museum-japanese">ミュージアム名</div>
+                    <div class="modal-architect">Designed by Architect (Year)</div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">Architectural Style</div>
+                        <div class="info-value" id="modal-style">Style</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Completion Year</div>
+                        <div class="info-value" id="modal-year">Year</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Architect (Japanese)</div>
+                        <div class="info-value" id="modal-architect-jp">建築家</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">City</div>
+                        <div class="info-value" id="modal-city">City</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Prefecture</div>
+                        <div class="info-value" id="modal-prefecture">Prefecture</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Nearest Station</div>
+                        <div class="info-value" id="modal-station">Station</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Nearest Major City</div>
+                        <div class="info-value" id="modal-major-city">City</div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Description</h3>
+                    <p id="modal-description">Museum description...</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Architectural Highlights</h3>
+                    <p id="modal-highlights">Architectural highlights...</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Accessibility</h3>
+                    <p id="modal-accessibility">Accessibility information...</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Attractions</h3>
+                    <div class="attractions-grid">
+                        <div class="attraction-card">
+                            <div id="attraction-1-image" class="attraction-image">
+                                <div style="display:flex; width:100%; height:100%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); align-items:center; justify-content:center; font-size:14px; color:#999;">
+                                    Primary Attraction
+                                </div>
+                            </div>
+                            <div class="attraction-content">
+                                <h4 class="attraction-name" id="attraction-1-name">Primary Museum Experience</h4>
+                                <p class="attraction-description" id="attraction-1-description">Description...</p>
+                            </div>
+                        </div>
+                        <div class="attraction-card">
+                            <div id="attraction-2-image" class="attraction-image">
+                                <div style="display:flex; width:100%; height:100%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); align-items:center; justify-content:center; font-size:14px; color:#999;">
+                                    Secondary Attraction
+                                </div>
+                            </div>
+                            <div class="attraction-content">
+                                <h4 class="attraction-name" id="attraction-2-name">Nearby Cultural Site</h4>
+                                <div id="attraction-2-distance" class="attraction-distance" style="display: none;">
+                                    <span id="attraction-2-distance-text"></span>
+                                </div>
+                                <p class="attraction-description" id="attraction-2-description">Description...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+let museumsData = [];
+
+// Configuration - Update this with your GitHub raw CSV URL
+const CSV_URL = 'https://raw.githubusercontent.com/jamespnz/museum-meditations-japan/main/museums_japan.csv';
+
+// Navigation
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    document.getElementById(sectionId).classList.add('active');
+    event?.target?.classList.add('active');
+}
+
+// Load CSV from GitHub
+async function loadCSVFromGitHub() {
+    const statusMessage = document.getElementById('status-message');
+    
+    try {
+        statusMessage.innerHTML = '⏳ Loading museums data from GitHub...';
+        
+        const response = await fetch(CSV_URL);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to fetch CSV: ${response.status} ${response.statusText}`);
+        }
+        
+        const csvText = await response.text();
+        parseCSV(csvText);
+        
+    } catch (error) {
+        console.error('Error loading CSV:', error);
+        statusMessage.innerHTML = `
+            <div class="error">
+                ❌ Error loading data: ${error.message}<br>
+                <small>Please check that the CSV_URL in the code is correct and points to a raw GitHub file.</small>
+            </div>
+        `;
+    }
+}
+
+function parseCSV(csvData) {
+    const lines = csvData.split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    
+    museumsData = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        if (lines[i].trim()) {
+            const values = parseCSVLine(lines[i]);
+            if (values.length === headers.length) {
+                const museum = {};
+                headers.forEach((header, index) => {
+                    museum[header] = values[index] ? values[index].trim() : '';
+                });
+                museumsData.push(museum);
+            }
+        }
+    }
+    
+    console.log('Parsed museums data:', museumsData);
+    displayMuseums();
+    document.getElementById('status-message').innerHTML = `✅ Loaded ${museumsData.length} museums successfully`;
+}
+
+function parseCSVLine(line) {
+    const values = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            values.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    values.push(current);
+    return values;
+}
+
+function displayMuseums() {
+    const grid = document.getElementById('museums-grid');
+    grid.innerHTML = '';
+    
+    museumsData.forEach((museum, index) => {
+        const card = createMuseumCard(museum, index);
+        grid.appendChild(card);
+    });
+}
+
+function createMuseumCard(museum, index) {
+    const card = document.createElement('div');
+    card.className = 'museum-card';
+    card.onclick = () => openModal(museum);
+
+    const placeholder = `
+        <div style="display:flex; width:100%; height:100%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); align-items:center; justify-content:center; font-size:14px; color:#999;">
+            Museum Photo Placeholder
+        </div>
+    `;
+
+    card.innerHTML = `
+        <div class="card-image">
+            ${
+                museum.museum_image_url
+                    ? `
+                        <img src="${museum.museum_image_url}" alt="${museum.museum_name}"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        ${placeholder}
+                    `
+                    : placeholder
+            }
+            ${
+                museum.image_attribution
+                    ? `<div class="image-attribution">${museum.image_attribution}</div>`
+                    : ''
+            }
+        </div>
+        <div class="card-content">
+            <div class="museum-name">${museum.museum_name || 'Museum Name'}</div>
+            <div class="museum-name-japanese">${museum.museum_japanese || 'ミュージアム名'}</div>
+            <div class="architect-info">
+                <div class="architect-name">${museum.architect || 'Architect'}</div>
+                <div class="year-badge">${museum.completion_year || 'Year'}</div>
+            </div>
+            <div class="location-info">
+                <span>📍 ${museum.city || 'City'}, ${museum.prefecture || 'Prefecture'}</span>
+            </div>
+            <div class="description">
+                ${museum.description ? (museum.description.substring(0, 150) + '...') : 'Museum description...'}
+            </div>
+            ${museum.architectural_style ? `
+                <div class="card-tags">
+                    <span class="tag">${museum.architectural_style}</span>
+                </div>
+            ` : ''}
+        </div>
+    `;
+
+    return card;
+}
+
+// Modal functionality
+const modal = document.getElementById('museumModal');
+const closeBtn = document.querySelector('.close');
+
+function openModal(museum) {
+    if (!modal) { 
+        console.error('Modal root #museumModal not found'); 
+        return; 
+    }
+
+    // Scope lookups to the modal
+    const qs = (sel) => modal.querySelector(sel);
+    const setText = (sel, value) => {
+        const el = qs(sel);
+        if (!el) { 
+            console.warn('Missing node for selector:', sel); 
+            return; 
+        }
+        el.textContent = value ?? '';
+    };
+
+    // Header text (class-based)
+    setText('.modal-museum-name', museum.museum_name || museum.name || 'Museum Name');
+    setText('.modal-museum-japanese', museum.museum_japanese || museum.name_japanese || 'ミュージアム名');
+    setText('.modal-architect', `Designed by ${museum.architect || 'Architect'} (${museum.completion_year || 'Year'})`);
+
+    // Header image/title block
+    const modalHeader = document.getElementById('modal-header');
+    if (modalHeader) {
+        if (museum.museum_image_url) {
+            modalHeader.innerHTML = `
+                <img src="${museum.museum_image_url}" alt="${museum.museum_name || museum.name || 'Museum'}" onerror="this.style.display='none';">
+                <div class="modal-title">
+                    <div class="modal-museum-name">${museum.museum_name || museum.name || 'Museum Name'}</div>
+                    <div class="modal-museum-japanese">${museum.museum_japanese || museum.name_japanese || 'ミュージアム名'}</div>
+                    <div class="modal-architect">Designed by ${museum.architect || 'Architect'} (${museum.completion_year || 'Year'})</div>
+                </div>
+                ${museum.image_attribution ? `<div class="image-attribution" style="opacity:1;">${museum.image_attribution}</div>` : ''}
+            `;
+        }
+    }
+
+    // Info cards
+    document.getElementById('modal-style')?.replaceChildren(document.createTextNode(museum.architectural_style || 'Architectural Style'));
+    document.getElementById('modal-year')?.replaceChildren(document.createTextNode(museum.completion_year || 'Year'));
+    document.getElementById('modal-architect-jp')?.replaceChildren(document.createTextNode(museum.architect_japanese || '建築家名'));
+    document.getElementById('modal-city')?.replaceChildren(document.createTextNode(museum.city || 'City'));
+    document.getElementById('modal-prefecture')?.replaceChildren(document.createTextNode(museum.prefecture || 'Prefecture'));
+    document.getElementById('modal-station')?.replaceChildren(document.createTextNode(museum.nearest_station || 'Station'));
+    document.getElementById('modal-major-city')?.replaceChildren(document.createTextNode(museum.nearest_major_city || 'Major City'));
+    document.getElementById('modal-description')?.replaceChildren(document.createTextNode(museum.description || 'Museum description will be populated from CSV data.'));
+    document.getElementById('modal-highlights')?.replaceChildren(document.createTextNode(museum.architectural_highlights || 'Architectural highlights will be populated from CSV data.'));
+    document.getElementById('modal-accessibility')?.replaceChildren(document.createTextNode(museum.accessibility_notes || 'Accessibility information will be populated from CSV data.'));
+
+    // Attractions
+    const attraction1Image = document.getElementById('attraction-1-image');
+    if (attraction1Image && museum.attraction_1_image_url) {
+        attraction1Image.innerHTML = `
+            <img src="${museum.attraction_1_image_url}" alt="Primary Attraction" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; width:100%; height:100%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); align-items:center; justify-content:center; font-size:14px; color:#999;">
+                Attraction Photo Placeholder
+            </div>
+            ${museum.attraction_1_attribution ? `<div class="image-attribution" style="opacity:1;">${museum.attraction_1_attribution}</div>` : ''}
+        `;
+    }
+    
+    const attraction2Image = document.getElementById('attraction-2-image');
+    if (attraction2Image && museum.attraction_2_image_url) {
+        attraction2Image.innerHTML = `
+            <img src="${museum.attraction_2_image_url}" alt="Secondary Attraction" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; width:100%; height:100%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); align-items:center; justify-content:center; font-size:14px; color:#999;">
+                Attraction Photo Placeholder
+            </div>
+            ${museum.attraction_2_attribution ? `<div class="image-attribution" style="opacity:1;">${museum.attraction_2_attribution}</div>` : ''}
+        `;
+    }
+
+    // Update primary museum experience
+    const primaryName = document.getElementById('attraction-1-name');
+    if (primaryName) {
+        primaryName.textContent = museum.museum_name || 'Primary Museum Experience';
+    }
+    
+    const primaryDesc = document.getElementById('attraction-1-description');
+    if (primaryDesc) {
+        primaryDesc.textContent = museum.primary_museum_experience_blurb || 'Explore the main museum collections and architectural features. Experience the harmonious blend of space, light, and artistic expression.';
+    }
+    
+    // Update nearby cultural site
+    const culturalName = document.getElementById('attraction-2-name');
+    if (culturalName) {
+        culturalName.textContent = museum.nearby_cultural_attraction_name || 'Nearby Cultural Site';
+    }
+    
+    // Add distance information
+    const distanceText = document.getElementById('attraction-2-distance-text');
+    const distanceContainer = document.getElementById('attraction-2-distance');
+    if (distanceText && museum.distance_from_main_attraction) {
+        distanceText.textContent = museum.distance_from_main_attraction;
+        if (distanceContainer) {
+            distanceContainer.style.display = 'block';
+        }
+    } else if (distanceContainer) {
+        distanceContainer.style.display = 'none';
+    }
+    
+    const culturalDesc = document.getElementById('attraction-2-description');
+    if (culturalDesc) {
+        culturalDesc.textContent = museum.nearby_cultural_attraction_blurb || 'Discover complementary cultural attractions in the surrounding area.';
+    }
+
+    // Show modal
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners
+if (closeBtn) closeBtn.onclick = closeModal;
+
+// Backdrop close
+modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
+
+// Initialize - Load CSV when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    showSection('museums');
+    loadCSVFromGitHub();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    modal?.classList.remove('open');
+    document.body.style.overflow = 'auto';
+});
+
+</script>
+</body>
+</html>
