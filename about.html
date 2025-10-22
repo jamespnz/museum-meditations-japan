@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNXJFB190"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BNXJFB190');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Museum Meditations Japan - A curated guide to contemplative museum experiences, created by a cultural specialist with diplomatic experience promoting Japanese culture internationally.">
+    <title>About | Museum Meditations Japan</title>
+    <style>
+        /* ================================
+   EARLY MODERNISM THEME TOKENS
+   (Bauhaus / De Stijl / Int'l Style)
+   ================================ */
+
+:root {
+  /* Typography */
+  --font-sans: "Futura PT","Avenir Next","Montserrat","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+
+  /* Core Palette (Modernist primaries + neutrals) */
+  --color-red: #E5252A;
+  --color-blue: #0057B8;
+  --color-yellow: #F6D32D;
+  --color-black: #111111;
+  --color-white: #FFFFFF;
+  --color-concrete: #F5F5F5;
+  --color-rule: #D9D9D9;
+  --color-text: var(--color-black);
+  --color-text-2: #333333;
+
+  /* Roles */
+  --bg-page: var(--color-white);
+  --bg-surface: var(--color-concrete);
+  --link: var(--color-blue);
+  --link-hover: #003E86;
+  --focus: var(--color-blue);
+
+  /* Spacing / Radius / Motion */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --radius: 4px;
+  --shadow-1: 0 1px 0 rgba(0,0,0,0.06);
+  --t-fast: 120ms linear;
+}
+
+/* =========
+   GLOBAL
+   ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-family: var(--font-sans); }
+
+body {
+  background: var(--bg-page);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links & Focus (utilitarian) */
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; transition: color var(--t-fast); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Container uses modular grid gaps */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+
+/* =========
+   HEADER / NAV
+   ========= */
+header {
+  background: var(--bg-page);
+  padding: var(--s-4) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  line-height: 1.12;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.subtitle {
+  color: var(--color-text-2);
+  font-size: 0.95rem;
+  margin-top: var(--s-1);
+}
+
+nav {
+  display: flex;
+  gap: var(--s-5);
+}
+
+nav a {
+  color: var(--color-text-2);
+  font-weight: 600;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: border-color var(--t-fast), transform var(--t-fast), background var(--t-fast), color var(--t-fast);
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* =========
+   MAIN CONTENT
+   ========= */
+main {
+  max-width: 900px;
+  margin: var(--s-7) auto;
+  padding: 0 var(--s-4);
+}
+
+.content-container {
+  background: var(--bg-page);
+  padding: var(--s-7);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-rule);
+}
+
+/* =========
+   TYPOGRAPHY
+   ========= */
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--color-text);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  line-height: 1.12;
+  margin-bottom: var(--s-6);
+  padding-bottom: var(--s-4);
+  border-bottom: 2px solid var(--color-rule);
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--color-text);
+  font-weight: 800;
+  margin-top: var(--s-6);
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--color-rule);
+  letter-spacing: 0.1px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  font-weight: 700;
+  margin-top: var(--s-5);
+  margin-bottom: var(--s-3);
+}
+
+p {
+  margin-bottom: var(--s-4);
+  color: #444;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+ul {
+  margin-left: var(--s-6);
+  margin-bottom: var(--s-4);
+}
+
+li {
+  margin-bottom: var(--s-3);
+  color: #444;
+  line-height: 1.6;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* =========
+   HIGHLIGHT BOXES
+   ========= */
+.highlight-box {
+  background-color: var(--bg-surface);
+  border-left: 4px solid var(--color-blue);
+  padding: var(--s-5);
+  margin: var(--s-5) 0;
+  border-radius: var(--radius);
+}
+
+.highlight-box h3 {
+  margin-top: 0;
+  color: var(--color-blue);
+  font-weight: 800;
+}
+
+.highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========
+   FOOTER
+   ========= */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--color-rule);
+  text-align: center;
+  padding: var(--s-7) var(--s-4);
+  margin-top: var(--s-7);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-5);
+  margin-bottom: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-text-2);
+  font-weight: 600;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.footer-links a:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+footer p {
+  color: var(--color-text-2);
+  font-size: 0.9rem;
+}
+
+/* =========
+   RESPONSIVE
+   ========= */
+@media (max-width: 768px) {
+  .content-container {
+    padding: var(--s-5);
+  }
+
+  .page-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  nav {
+    gap: var(--s-3);
+  }
+
+  nav a {
+    padding: var(--s-2) var(--s-3);
+    font-size: 0.9rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: var(--s-4);
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1><a href="index.html">Museum Meditations Japan</a></h1>
+                    <div class="subtitle">Spaces of light, stillness, and discovery</div>
+                </div>
+                <nav>
+                    <a href="index.html">Museums</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <h1 class="page-title">About Museum Meditations Japan</h1>
+
+            <h2>Our Mission</h2>
+            <p>Museum Meditations Japan is a curated guide to contemplative museum experiences across Japan. We showcase 28 carefully selected museums and art spaces where architecture invites reflection, light shapes experience, and cultural discovery unfolds in spaces designed for stillness.</p>
+
+            <p>These are not just buildings housing art—they are architectural sanctuaries where design philosophy merges with Japanese aesthetic principles to create environments for meditation and cultural contemplation.</p>
+
+            <h2>Who We Are</h2>
+            <p>This guide was created by a cultural specialist who served as assistant to a cultural attaché, promoting Japanese culture through international cultural diplomacy. Having lived in Japan for more than 15 years, our curator has developed intimate knowledge of the country's most significant cultural venues and their architectural philosophies.</p>
+            
+            <p>Combining professional experience in cultural event management with decades of independent study of museums worldwide, we bring both insider perspective to understanding how architecture shapes contemplative experience.</p>
+
+            <div class="highlight-box">
+                <h3>Professional Background</h3>
+                <p><strong>Cultural Attaché Assistant:</strong> Promoted Japanese culture internationally through government-sponsored cultural diplomacy programs, organizing exhibitions and events at premier museums and cultural venues outside Japan</p>
+                <p><strong>Expertise Areas:</strong> Japanese cultural institutions, international cultural exchange, museum architecture, contemplative spaces, and the intersection of design and cultural experience</p>
+                <p><strong>Ongoing Research:</strong> Decades of study focusing on museums as spaces for meditation and cultural reflection, with particular emphasis on post-war Japanese architecture and its philosophical foundations</p>
+            </div>
+
+            <h2>What Makes This Guide Unique</h2>
+
+            <h3>Contemplative Curation</h3>
+            <p>This is not a comprehensive directory of all Japanese museums. Rather, it's a carefully curated selection of 28 spaces chosen for their ability to create contemplative experiences through architectural design. Our focus on "meditations" emphasizes:</p>
+            <ul>
+                <li><strong>Light as medium:</strong> How natural light choreography shapes experience (Chichu, Teshima, Lee Ufan)</li>
+                <li><strong>Stillness through design:</strong> Architecture that invites pause and reflection</li>
+                <li><strong>Integration with nature:</strong> Spaces that blur boundaries between interior and landscape</li>
+                <li><strong>Meditative qualities:</strong> Museums designed for contemplation, not just display</li>
+            </ul>
+
+            <h3>Insider Perspective</h3>
+            <p>Having organized cultural programs at many of Japan's premier museums and galleries through diplomatic channels, we understand these spaces from both operational and experiential perspectives. This professional background informs our descriptions of:</p>
+            <ul>
+                <li>How architectural design creates conditions for contemplation</li>
+                <li>The philosophical intentions behind spatial composition</li>
+                <li>Cultural context and significance of each venue</li>
+                <li>Practical guidance for accessing remote or complex locations</li>
+            </ul>
+
+            <h3>Comprehensive Information</h3>
+            <p>Each museum listing includes detailed information to help you plan your contemplative journey:</p>
+            <ul>
+                <li><strong>Architectural details:</strong> Style, architect, completion year, and design philosophy</li>
+                <li><strong>Contemplative qualities:</strong> How light, space, and materiality shape experience</li>
+                <li><strong>Location information:</strong> Prefecture, city, nearest station, and regional context</li>
+                <li><strong>Distance details:</strong> Walking times and transportation between main museums and nearby cultural sites</li>
+                <li><strong>Cultural context:</strong> The story behind each space and its significance</li>
+            </ul>
+
+            <h2>Our Philosophy</h2>
+            <p>Through years of working with Japanese cultural institutions as assistant to a cultural attaché, we learned that Japan's greatest museum spaces are designed not just to display art, but to create conditions for reflection. Architects like Tadao Ando, Ryue Nishizawa, and Kazuyo Sejima understand that architecture can induce contemplative states—that light, space, and materiality can quiet the mind and heighten awareness.</p>
+
+            <p>This guide emphasizes museums as spaces of meditation. Whether it's the underground chambers of Chichu Art Museum where natural light transforms Monet's water lilies throughout the day, or the minimalist concrete shell of Teshima Art Museum where water droplets mysteriously form and flow, these are spaces designed for stillness and discovery.</p>
+
+            <p>We've selected 28 museums that embody Japanese aesthetic principles—<em>ma</em> (negative space), <em>wabi-sabi</em> (beauty in imperfection), and <em>shizen</em> (naturalness)—expressed through contemporary architectural language. These concepts, deeply rooted in Japanese culture, find expression in how architects choreograph light, frame nature, and create silence within their buildings.</p>
+
+            <h2>Who This Guide Serves</h2>
+
+            <h3>Contemplative Travelers</h3>
+            <p>Visitors seeking meaningful cultural experiences beyond typical tourism—those who value quiet reflection, architectural beauty, and spaces that encourage mindfulness.</p>
+
+            <h3>Architecture Enthusiasts</h3>
+            <p>Professionals and students who want to experience how Japan's leading architects create spaces for meditation through design, light, and material choices.</p>
+
+            <h3>Cultural Explorers</h3>
+            <p>Travelers interested in understanding Japanese aesthetic philosophy through direct experience of spaces designed according to traditional principles expressed in contemporary form.</p>
+
+            <h3>Art Lovers</h3>
+            <p>Museum-goers who appreciate how thoughtful architecture transforms the experience of viewing art, creating environments where art, space, and visitor exist in contemplative dialogue.</p>
+
+            <h2>Selection Criteria</h2>
+            <p>Every museum in our guide has been chosen based on:</p>
+            <ul>
+                <li><strong>Contemplative design:</strong> Architecture that creates conditions for reflection and stillness</li>
+                <li><strong>Post-war innovation:</strong> Buildings from 1945-present that represent significant architectural achievements</li>
+                <li><strong>Architectural significance:</strong> Works by internationally recognized architects or historically important examples</li>
+                <li><strong>Accessibility:</strong> Practical ability for international visitors to reach and experience the space</li>
+                <li><strong>Cultural authenticity:</strong> Spaces that genuinely embody Japanese aesthetic principles</li>
+            </ul>
+
+            <h2>Geographic Coverage</h2>
+            <p>Our directory includes contemplative museum spaces across all major regions of Japan:</p>
+            <ul>
+                <li><strong>Kanto:</strong> Tokyo's urban sanctuaries and surrounding contemplative spaces</li>
+                <li><strong>Kansai:</strong> Kyoto, Osaka, and western cultural centers</li>
+                <li><strong>Chubu:</strong> Central Japan including mountain and coastal museums</li>
+                <li><strong>Chugoku:</strong> The art islands of the Seto Inland Sea and Hiroshima region</li>
+                <li><strong>Shikoku:</strong> Island destinations focused on art and contemplation</li>
+                <li><strong>Kyushu:</strong> Southern architectural experiences</li>
+                <li><strong>Tohoku & Hokkaido:</strong> Northern spaces of reflection</li>
+            </ul>
+
+            <p>We believe some of Japan's most profound meditative experiences are found in remote locations. The journey to reach them—whether ferry rides to art islands or mountain approaches—becomes part of the contemplative practice.</p>
+
+            <h2>Our Commitment to Quality</h2>
+            <p>We maintain accuracy through:</p>
+            <ul>
+                <li>Professional experience working with Japanese cultural institutions</li>
+                <li>Ongoing research and field verification</li>
+                <li>Consultation with official museum sources and architectural records</li>
+                <li>Complete editorial independence (no paid listings)</li>
+            </ul>
+
+            <p>Having organized cultural programs at many of these venues, we bring insider perspective on visitor experience, spatial qualities, and cultural significance that goes beyond typical travel guides.</p>
+
+            <h2>Important Visitor Information</h2>
+            <p>While we strive for accuracy, museum details may change. We recommend confirming before visiting:</p>
+            <ul>
+                <li>Current operating hours and closure days</li>
+                <li>Admission fees and advance booking requirements</li>
+                <li>Temporary closures for renovations or installations</li>
+                <li>Special exhibition schedules</li>
+                <li>Photography policies</li>
+            </ul>
+
+            <p><strong>Last comprehensive update:</strong> October 2025</p>
+
+            <h2>Feedback & Suggestions</h2>
+            <p>We welcome suggestions for contemplative museum spaces to include in future updates. If you know of an architecturally significant museum that creates conditions for meditation and reflection, please <a href="contact.html">contact us</a> with details including:</p>
+            <ul>
+                <li>Museum name and location</li>
+                <li>Architect and construction date</li>
+                <li>Description of contemplative qualities</li>
+                <li>How the space embodies Japanese aesthetic principles</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Begin Your Journey</h3>
+                <p>Explore Japan's spaces of light, stillness, and discovery. Whether you're planning a comprehensive pilgrimage through the art islands of the Seto Inland Sea or seeking a single transformative museum experience in Tokyo, we're here to guide your contemplative journey through Japan's most meditative architectural spaces.</p>
+                <p><a href="index.html"><strong>Browse our museum directory →</strong></a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Museums</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            <p>&copy; 2025 Museum Meditations Japan. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
